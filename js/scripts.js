@@ -187,14 +187,14 @@ $(document).ready(function () {
             title: "Victoria and David's Wedding",
 
             // Event start date
-            start: new Date('March 12th, 2022 17:00'),
+            start: new Date('March 12, 2022 17:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('March 13th, 01:00'),
+            end: new Date('March 13, 2022 01:00'),
 
             // Event Address
             address: 'Bonaventure Resort & Spa',
@@ -214,11 +214,35 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        if (MD5($('#invite_code').val()) !== '563db08461381c2e8a5a5bf94c0fb6d1'
+            && MD5($('#invite_code').val()) !== 'ca80bbc1b12a266a9a7b6c0cf46a154e' 
+            && MD5($('#invite_code').val()) !== 'cc8e05b9bde0f802f8af10273bb89d5c'
+            && MD5($('#invite_code').val()) !== '62176855ca6e0ef9bcf0de67abf2e5d9'
+            && MD5($('#invite_code').val()) !== 'e214786a5ff033e8ad5d57501bf82a16'
+            && MD5($('#invite_code').val()) !== '2a305437dff38f3b83f52900567a91ed') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.local'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyTq05pt_0L3Xgnf77He8qkb0plcLbFntJa7X6Y_UhhOGT-mDU/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycbxDCMvJR_ezO_xGnPunvbmnii2CaA2f6ryrmf4slY34cRr4uzDMm5JqL1yiCgVP1MxWCw/exec', data)
+        .done(function (data) {
+            console.log(data);
+            if (data.result === "error") {
+                $('#alert-wrapper').html(alert_markup('danger', data.message));
+            } else {
+                $('#alert-wrapper').html('');
+                $('#rsvp-modal').modal('show');
+            }
+        })
+        .fail(function (data) {
+            console.log(data);
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is an issue with the server. '));
+        });
+}
+});
+
+});
+
+/*         if (true) {
+            $.post('https://script.google.com/macros/s/AKfycbyqD0XrrOtCJEAsjV8MylcDkQkAYIVmnCpCge8U9WwCGwh6qrNI_jcZq17edP4vpJHj/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -236,7 +260,7 @@ $(document).ready(function () {
     });
 
 });
-
+ */
 /********************** Extras **********************/
 
 // Google map
