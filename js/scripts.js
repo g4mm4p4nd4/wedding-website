@@ -219,10 +219,18 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== 'cc8e05b9bde0f802f8af10273bb89d5c'
             && MD5($('#invite_code').val()) !== '62176855ca6e0ef9bcf0de67abf2e5d9'
             && MD5($('#invite_code').val()) !== 'e214786a5ff033e8ad5d57501bf82a16'
-            && MD5($('#invite_code').val()) !== '2a305437dff38f3b83f52900567a91ed') {
+            && MD5($('#invite_code').val()) !== '2a305437dff38f3b83f52900567a91ed'
+            && MD5($('#invite_code').val()) !== 'd4850944bd4d0817ba6ddc03eeabd1cb'
+            && MD5($('#invite_code').val()) !== 'a08f012661597a23359620d8663c59cd'
+            && MD5($('#invite_code').val()) !== '5b04bd53d09643498576fb2bf876a707'
+            && MD5($('#invite_code').val()) !== 'b55b698cd466855ddee574af64353300'
+            && MD5($('#invite_code').val()) !== 'b52e46db52d164fd24c5731fc9df87a5'
+            && MD5($('#invite_code').val()) !== 'a65cdaa87ef58fd864ee42ce5fd25dff'
+            && MD5($('#invite_code').val()) !== '2ff9869948005a9bb59de03de9b8f8b9'
+            && MD5($('#invite_code').val()) !== '0d76ee42cf6c64f82c316f47cb735ef2') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.local'));
         } else {
-        $.post('https://script.google.com/macros/s/AKfycbylq7JoCeWVIw4bxNWGeZRFMSTiZmpzXk_v2xgnTukhJOn6OexD2gvMOTdQiDVu-5Kljg/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycbyF6BOJGIUjBI6VucHX3w6ZnzJf1wtmtD3Z3gqSDwmkR2-2lxkynLjfYOaU6ruwAZawow/exec', data)
         .done(function (data) {
             console.log(data);
             if (data.result === "error") {
